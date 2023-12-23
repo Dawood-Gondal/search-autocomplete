@@ -1,0 +1,44 @@
+<?php
+/**
+ * @category    M2Commerce Enterprise
+ * @package     M2Commerce_SearchAutocomplete
+ * @copyright   Copyright (c) 2023 M2Commerce Enterprise
+ * @author      dawoodgondaldev@gmail.com
+ */
+
+/**@var M2Commerce\SearchAutocomplete\Block\Autocomplete $block  */
+?>
+<?php if ($block->isEnabled()): ?>
+    <div data-bind="scope: 'searchsuiteautocomplete_form'">
+        <!-- ko template: getTemplate() --><!-- /ko -->
+    </div>
+
+    <script type="text/x-magento-init">
+        {
+            "*": {
+                "Magento_Ui/js/core/app": {
+                    "components": {
+                        "searchsuiteautocomplete_form": {
+                            "component": "M2Commerce_SearchAutocomplete/js/autocomplete"
+                        },
+                        "searchsuiteautocompleteBindEvents": {
+                            "component": "M2Commerce_SearchAutocomplete/js/bindEvents",
+                            "config": {
+                                "searchFormSelector": "#search_mini_form",
+                                "searchButtonSelector": "button.search",
+                                "inputSelector": "#search, #mobile_search, .minisearch input[type=\"text\"]",
+                                "searchDelay": "<?php echo $block->escapeHtml($block->getSearchDelay()) ?>"
+                            }
+                        },
+                        "searchsuiteautocompleteDataProvider": {
+                            "component": "M2Commerce_SearchAutocomplete/js/dataProvider",
+                            "config": {
+                                "url": "<?php echo $block->escapeUrl($block->getSearchUrl()) ?>"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+<?php endif; ?>

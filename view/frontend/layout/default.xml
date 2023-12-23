@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category    M2Commerce Enterprise
+ * @package     M2Commerce_SearchAutocomplete
+ * @copyright   Copyright (c) 2023 M2Commerce Enterprise
+ * @author      dawoodgondaldev@gmail.com
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="top.search">
+            <block class="M2Commerce\SearchAutocomplete\Block\Autocomplete" name="m2c.search.autocomplete.wrapper" template="M2Commerce_SearchAutocomplete::autocomplete.phtml"/>
+        </referenceBlock>
+    </body>
+</page>

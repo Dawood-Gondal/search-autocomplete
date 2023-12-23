@@ -1,0 +1,30 @@
+<div id="searchsuite-autocomplete" class="searchsuite-autocomplete" data-bind="visible: showPopup()">
+    <div data-bind="visible: anyResultCount()">
+        <div class="product" data-bind="visible: result.product.data().length > 0">
+            <div class="title">
+                <!-- ko i18n: 'Products'--><!-- /ko -->
+                <a class="see-all" data-bind="attr: {href: result.product.url}">
+                    <!-- ko i18n: 'See All' --><!-- /ko -->
+                    <span data-bind="text: result.product.size"></span>
+                </a>
+            </div>
+            <ul id="product" role="listbox" data-bind="foreach: result.product.data">
+                <li>
+                    <div class="qs-option-image" data-bind="visible: image">
+                        <a data-bind="attr: { href: url, title: name }">
+                            <img data-bind="attr: { src: image, title: name }" />
+                        </a>
+                    </div>
+                    <div class="qs-option-info" data-bind="css: {noimage: !image}">
+                        <div class="qs-option-title" data-bind="visible: name">
+                            <a data-bind="attr: { href: url, title: name }, text: name"></a>
+                        </div>
+                        <div class="qs-option-sku" data-bind="visible: sku"><!-- ko i18n: 'SKU'--><!-- /ko -->: <span data-bind="text: sku"></span></div>
+                        <div class="qs-option-description" data-bind="text: description, visible: description"></div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="no-result" data-bind="visible: !anyResultCount()"><!-- ko i18n: 'No Result'--><!-- /ko --></div>
+</div>
